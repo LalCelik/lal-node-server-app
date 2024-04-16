@@ -22,8 +22,11 @@ import session from "express-session";
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
 mongoose.connect(CONNECTION_STRING);
 
-
 const app = express();
+
+//var cors = require('cors');
+//app.use(cors());
+
 app.use(
     cors({
       credentials: true,
@@ -32,16 +35,6 @@ app.use(
     })
    );   
 app.use(express.json());
-
-//new
-//const sessionOptions = {
-//    secret: "any string",
-//    resave: false,
-//    saveUninitialized: false,
-//  };
- // app.use(
-//    session(sessionOptions)
- // );
 
  const sessionOptions = {
     secret: process.env.SESSION_SECRET,

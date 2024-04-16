@@ -59,9 +59,6 @@ const signout = (req, res) => {
   res.sendStatus(200);
 };
 
-
-
-
   //const profile = async (req, res) => {
   //  res.json(currentUser);
   //};
@@ -74,13 +71,16 @@ const signout = (req, res) => {
     res.json(currentUser);
   };
 
-
   const updateUser = async (req, res) => {
     const { userId } = req.params;
+    console.log(userId);
     const status = await dao.updateUser(userId, req.body);
-    currentUser = await dao.findUserById(userId);
+    console.log(status);
+    const currentUser = await dao.findUserById(userId);
+
     res.json(status);
   };
+
   const findAllUsers = async (req, res) => {
     const users = await dao.findAllUsers();
     res.json(users);
@@ -94,8 +94,8 @@ const signout = (req, res) => {
   
   app.put("/api/users/:userId", updateUser);
 
-
   app.delete("/api/users/:userId", deleteUser);
+
   app.post("/api/users/signup", signup);
   app.post("/api/users/signin", signin);
   app.post("/api/users/signout", signout);

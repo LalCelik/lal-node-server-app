@@ -23,7 +23,7 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0
 mongoose.connect(CONNECTION_STRING);
 
 //added this??
-DB_CONNECTION_STRING = 'mongodb+srv://lalcelikbilek:1234@cluster0.grgxgm5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+//DB_CONNECTION_STRING = 'mongodb+srv://lalcelikbilek:1234@cluster0.grgxgm5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 const app = express();
 

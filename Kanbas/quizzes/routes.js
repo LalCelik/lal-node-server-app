@@ -45,9 +45,37 @@ function QuizRoutes(app) {
         res.send(quiz);
       });
     
-  app.get("/api/quizzes", (req, res) => {
+  app.get("/api/quizzes/getAllQuizzes", (req, res) => {
     const quizzes = Database.quizzes;
     res.send(quizzes);
   });
+
+
+  app.get("/api/quizzes/getQuizByQuizId/:id", (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    const quiz = Database.quizzes
+      .find((q) => q._id === id);
+      console.log(quiz);
+    if (!quiz) {
+      res.status(404).send("Course not found");
+      return;
+    }
+    res.send(quiz);
+  });
+
+  app.get("/api/courses/:cid/quizzes/:id", (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    const quiz = Database.quizzes
+      .find((q) => q._id === id);
+      console.log(quiz);
+    if (!quiz) {
+      res.status(404).send("Course not found");
+      return;
+    }
+    res.send(quiz);
+  });
+  
 }
 export default QuizRoutes;

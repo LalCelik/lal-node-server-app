@@ -19,8 +19,8 @@ import session from "express-session";
 // mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
-mongoose.connect(CONNECTION_STRING);
+ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
+ mongoose.connect(CONNECTION_STRING);
 
 //added this??
 //DB_CONNECTION_STRING = 'mongodb+srv://lalcelikbilek:1234@cluster0.grgxgm5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
@@ -33,8 +33,8 @@ const app = express();
 app.use(
     cors({
       credentials: true,
-      //origin: "http://localhost:3000",
-      origin: process.env.FRONTEND_URL
+      origin: "http://localhost:3000",
+      //origin: process.env.FRONTEND_URL
     })
    );   
 app.use(express.json());
